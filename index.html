@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>randomcodingquestion.com</title>
+<style>
+  /* Only what the page needs to work; everything else is the browser's default look. */
+  #editor { height: 360px; border: 1px solid GrayText; }
+  #out { white-space: pre-wrap; }
+</style>
+</head>
+<body>
+<p>
+  <select id="track" aria-label="Language">
+    <option value="lc">Python</option>
+    <option value="v">Verilog</option>
+  </select>
+  <select id="diff" aria-label="Difficulty">
+    <option value="all">All</option>
+    <option value="easy">Easy</option>
+    <option value="medium">Medium</option>
+    <option value="hard">Hard</option>
+  </select>
+</p>
+
+<h2 id="title"></h2>
+<div id="desc"></div>
+
+<div id="editor"></div>
+<p>
+  <button id="scramble">Scramble</button>
+  <button id="check">Check</button>
+  <button id="complexity">Complexity</button>
+</p>
+<div id="out"></div>
+
+<hr>
+<footer><a href="about.html">About this page</a></footer>
+
+<script src="problems.js?v=9"></script>
+<script src="verilog.js?v=9"></script>
+<script src="app.js?v=9"></script>
+
+<!-- Monaco editor from CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.52.2/min/vs/loader.min.js"></script>
+<script>
+  const VS = "https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.52.2/min/vs";
+  require.config({ paths: { vs: VS } });
+  window.MonacoEnvironment = {
+    getWorkerUrl: () => URL.createObjectURL(new Blob(
+      [`self.MonacoEnvironment={baseUrl:"${VS}/../"};importScripts("${VS}/base/worker/workerMain.js");`],
+      { type: "text/javascript" }))
+  };
+  require(["vs/editor/editor.main"], () => App.attachEditor(monaco));
+</script>
+</body>
+</html>
