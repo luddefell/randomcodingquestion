@@ -1,0 +1,2 @@
+"use strict";(()=>{importScripts("https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js");var r=s=>postMessage(s),a=(async()=>{let[s,e]=await Promise.all([loadPyodide(),fetch("harness.py?v=917e5f43ab").then(n=>n.text())]);return s.FS.writeFile("harness.py",e),s.runPython("import harness"),r({ready:!0}),s})();onmessage=async s=>{let e=await a,{code:n,spec:o,cases:i}=s.data;try{let t=e.runPython("harness.run");r(JSON.parse(t(n,JSON.stringify(o),JSON.stringify(i))))}catch(t){r({error:String(t)})}};})();
+//# sourceMappingURL=python.worker.js.map

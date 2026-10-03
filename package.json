@@ -1,0 +1,15 @@
+{
+  "name": "randomcodingquestion",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json && tsc -p tsconfig.worker.json",
+    "build": "npm run typecheck && node build.mjs",
+    "problems": "python3 build/build.py",
+    "serve": "python3 -m http.server 8123"
+  },
+  "devDependencies": {
+    "esbuild": "^0.24.2",
+    "typescript": "^5.9.3"
+  }
+}

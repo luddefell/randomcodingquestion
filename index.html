@@ -8,13 +8,15 @@
   /* Only what the page needs to work; everything else is the browser's default look. */
   #editor { height: 360px; border: 1px solid GrayText; }
   #out { white-space: pre-wrap; }
+  #fin-answer { max-width: 100%; box-sizing: border-box; }
 </style>
 </head>
 <body>
 <p>
-  <select id="track" aria-label="Language">
+  <select id="track" aria-label="Question type">
     <option value="lc">Python</option>
     <option value="v">Verilog</option>
+    <option value="fin">Finance</option>
   </select>
   <select id="diff" aria-label="Difficulty">
     <option value="all">All</option>
@@ -28,6 +30,7 @@
 <div id="desc"></div>
 
 <div id="editor"></div>
+<div id="answer" hidden></div>
 <p>
   <button id="scramble">Scramble</button>
   <button id="check">Check</button>
@@ -38,9 +41,8 @@
 <hr>
 <footer><a href="about.html">About this page</a></footer>
 
-<script src="problems.js?v=9"></script>
-<script src="verilog.js?v=9"></script>
-<script src="app.js?v=9"></script>
+<script src="problems.js?v=917e5f43ab"></script>
+<script src="app.js?v=917e5f43ab"></script>
 
 <!-- Monaco editor from CDN -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.52.2/min/vs/loader.min.js"></script>
